@@ -21,10 +21,12 @@ class TopHalfCalculation: WindowCalculation, RepeatedExecutionsInThirdsCalculati
     
     func calculateFractionalRect(_ params: RectCalculationParameters, fraction: Float) -> RectResult {
         let visibleFrameOfScreen = params.visibleFrameOfScreen
-
+        
         var rect = visibleFrameOfScreen
         rect.size.height = floor(visibleFrameOfScreen.height * CGFloat(fraction))
         rect.origin.y = visibleFrameOfScreen.maxY - rect.height
+        rect.origin.x = params.window.rect.origin.x;
+        rect.size.width = params.window.rect.width;
         return RectResult(rect)
     }
     

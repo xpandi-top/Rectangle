@@ -23,7 +23,10 @@ class BottomHalfCalculation: WindowCalculation, RepeatedExecutionsInThirdsCalcul
         let visibleFrameOfScreen = params.visibleFrameOfScreen
 
         var rect = visibleFrameOfScreen
+        
         rect.size.height = floor(visibleFrameOfScreen.height * CGFloat(fraction))
+        rect.size.width = params.window.rect.width;
+        rect.origin.x = params.window.rect.origin.x;
         return RectResult(rect)
     }
     
